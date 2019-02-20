@@ -8,10 +8,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.7.7",
     "bulma": "^0.7.2",
-    "vue": "^2.5.21"
+    "font-awesome": "^4.7.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oalkabouss/TodCalculator.git"

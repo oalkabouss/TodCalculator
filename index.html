@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <div id="app" class="container  home">
-        <h1 class="title"><i class="fas fa-plane"></i>&nbsp;FSX Tod Calcukator</h1>
+    <div ng-app="todApp" ng-controller="todController as vm" class="container  home">
+        <h1 class="title"><i class="fas fa-plane"></i>&nbsp;FSX Tod Calcukator {{vm.name}}</h1>
+       <form name="vm.todFrom" >
         <div class="columns">
             <div class="column">
                 <div class="field is-horizontal">
@@ -22,7 +23,7 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <input class="input" type="text" placeholder="Vitesse sol" v-model="GroundSpeed">
+                            <input class="input" min="1" required type="number" placeholder="Vitesse sol" ng-model="vm.GroundSpeed">
                         </p>
                     </div>
                 </div>
@@ -34,7 +35,7 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <input class="input" type="text" placeholder="Δz" v-model="Δz">
+                            <input class="input" min="1" required type="number" placeholder="Δz" ng-model="vm.DeltaZ">
                         </p>
                     </div>
                 </div>
@@ -46,21 +47,24 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <input class="input" type="text" placeholder="Vz" v-model="Vz">
+                            <input class="input" min="1" required type="number" placeholder="Vz" ng-model="vm.VitessV">
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+        <button class="button is-link" type="submit"  ng-click="vm.Calculate()">Calculer</button>
+       </form>
         <br />
-        <button class="button is-link" v-on:click="calculate">Calculer</button>
+
         <br />
         <br />
-        <p>Resulte: {{result}}Nm</p>
+        <h1>Resulte: {{vm.result}} Nm</h1>
         <i>Distance de mise en descente = (vitesse sol * Δ Z)/(60 * Vz) </i>
     </div>
-    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/todController.js"></script>
 </body>
 
 </html>
