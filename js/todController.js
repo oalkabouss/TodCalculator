@@ -12,9 +12,10 @@
 
         Calculate = () =>{
             if(this.todFrom.$valid)
-            this.result =(this.GroundSpeed * this.DeltaZ) / (60*this.VitessV);
+            this.result = Math.round((this.GroundSpeed * this.DeltaZ) / (60*this.VitessV ));
         }
     }
 
     angular.module("todApp").controller('todController',todController);
+
 })()
